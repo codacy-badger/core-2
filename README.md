@@ -1,4 +1,4 @@
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0a95012e51f941c5abf06f4133b36b77)](https://www.codacy.com/manual/pravinba9495/iborg-core?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=pravinba9495/iborg-core&amp;utm_campaign=Badge_Grade) ![CI](https://github.com/pravinba9495/iborg-core/workflows/CI/badge.svg) [![Go Report Card](https://goreportcard.com/badge/github.com/pravinba9495/iborg-core)](https://goreportcard.com/report/github.com/pravinba9495/iborg-core) [![codecov](https://codecov.io/gh/pravinba9495/iborg-core/branch/master/graph/badge.svg)](https://codecov.io/gh/pravinba9495/iborg-core)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/00e659dd629c4cbaa3a2d543f6bcc27b)](https://www.codacy.com/gh/iborg-ai/iborg-core?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=iborg-ai/iborg-core&amp;utm_campaign=Badge_Grade) ![CI](https://github.com/iborg-ai/iborg-core/workflows/CI/badge.svg) [![Go Report Card](https://goreportcard.com/badge/github.com/iborg-ai/iborg-core)](https://goreportcard.com/report/github.com/iborg-ai/iborg-core)
 
 # iborg-core
 ## Download and Install Go
