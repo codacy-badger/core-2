@@ -10,7 +10,3 @@ type User struct {
 	CreatedAt int64  `json:"createdAt,omitempty" bson:"createdAt,omitempty"`
 	UpdatedAt int64  `json:"updatedAt,omitempty" bson:"updatedAt,omitempty"`
 }
-
-func (User) GetUser() {
-
-}

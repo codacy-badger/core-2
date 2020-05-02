@@ -8,7 +8,7 @@ import (
 	"os"
 )
 
-// Connect DB instantiates a mongoDB connection
+// ConnectDB instantiates a mongoDB connection
 func ConnectDB() {
 	var mongoURL = os.Getenv("IBORG_MONGO_URL")
 	if mongoURL == "" {
