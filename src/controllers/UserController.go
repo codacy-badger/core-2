@@ -25,7 +25,7 @@ func UserController(res http.ResponseWriter, req *http.Request) {
 		updateUser(res, req)
 		break
 	default:
-		res.WriteHeader(405)
+		res.WriteHeader(http.StatusMethodNotAllowed)
 		break
 	}
 }
@@ -46,8 +46,9 @@ func saveUser(res http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	res.WriteHeader(services.SaveUser(user))
-
+	result := services.SaveUser(user)
+	res.WriteHeader(result.Status)
+	res.Write([]byte(result.Error))
 }
 
 func updateUser(res http.ResponseWriter, req *http.Request) {
