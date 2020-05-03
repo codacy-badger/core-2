@@ -1,4 +1,4 @@
-module github.com/pravinba9495/iborg-core
+module github.com/iborg-ai/core
 
 go 1.14
 
