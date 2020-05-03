@@ -1,8 +1,10 @@
 package database
 
-import "go.mongodb.org/mongo-driver/mongo"
+import (
+	"github.com/jinzhu/gorm"
+)
 
 // Exports
 var (
-	DBConn *mongo.Client
+	DBConn *gorm.DB
 )
