@@ -1,6 +1,6 @@
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/00e659dd629c4cbaa3a2d543f6bcc27b)](https://www.codacy.com/gh/iborg-ai/iborg-core?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=iborg-ai/iborg-core&amp;utm_campaign=Badge_Grade) ![CI](https://github.com/iborg-ai/iborg-core/workflows/CI/badge.svg) [![Go Report Card](https://goreportcard.com/badge/github.com/iborg-ai/iborg-core)](https://goreportcard.com/report/github.com/iborg-ai/iborg-core)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/00e659dd629c4cbaa3a2d543f6bcc27b)](https://www.codacy.com/gh/iborg-ai/core?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=iborg-ai/core&amp;utm_campaign=Badge_Grade) ![CI](https://github.com/iborg-ai/core/workflows/CI/badge.svg) [![Go Report Card](https://goreportcard.com/badge/github.com/iborg-ai/core)](https://goreportcard.com/report/github.com/iborg-ai/core)
 
-# iborg-core
+# core
 ## Download and Install Go
 ### Linux, macOS, and FreeBSD tarballs
 [Download the archive](https://golang.org/dl/) and extract it into /usr/local, creating a Go tree in `/usr/local/go`. For example:
@@ -47,7 +47,7 @@ Under Windows, you may set environment variables through the "Environment Variab
 Use `git` to clone the repository:
 
 ```shell
-git clone https://github.com/iborg-ai/iborg-core.git
+git clone https://github.com/iborg-ai/core.git
 ```
 
 ### Install the dependencies
