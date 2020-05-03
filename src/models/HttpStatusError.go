@@ -1,6 +1,6 @@
 package models
 
-type HttpErrorStatus struct {
+type HTTPErrorStatus struct {
 	Status int
 	Error string
 }

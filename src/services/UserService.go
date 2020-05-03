@@ -8,7 +8,7 @@ import (
 )
 
 // SaveUser saves the user
-func SaveUser(user models.User) models.HttpErrorStatus {
+func SaveUser(user models.User) models.HTTPErrorStatus {
 	hash := md5.New()
 	hash.Write([]byte(user.Password))
 	user.Password = hex.EncodeToString(hash.Sum(nil))
