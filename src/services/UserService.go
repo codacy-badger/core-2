@@ -3,19 +3,14 @@ package services
 import (
 	"crypto/md5"
 	"encoding/hex"
-	"time"
-
 	"github.com/pravinba9495/iborg-core/src/database"
 	"github.com/pravinba9495/iborg-core/src/models"
 )
 
 // SaveUser saves the user
-func SaveUser(user models.User) int {
-	hasher := md5.New()
-	hasher.Write([]byte(user.Password))
-	user.Password = hex.EncodeToString(hasher.Sum(nil))
-	user.CreatedAt = time.Now().Unix()
-	user.UpdatedAt = user.CreatedAt
-	user.ID = ""
+func SaveUser(user models.User) models.HttpErrorStatus {
+	hash := md5.New()
+	hash.Write([]byte(user.Password))
+	user.Password = hex.EncodeToString(hash.Sum(nil))
 	return database.SaveUser(user)
 }
