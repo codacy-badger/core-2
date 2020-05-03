@@ -1,25 +1,21 @@
 package database
 
 import (
-	"context"
 	"github.com/pravinba9495/iborg-core/src/models"
-	"go.mongodb.org/mongo-driver/bson"
-	"go.mongodb.org/mongo-driver/bson/primitive"
-	"log"
+	"net/http"
 )
 
 // SaveUser saves a user in the database
-func SaveUser(user models.User) int {
-	client := DBConn
-	collection := client.Database("iborg").Collection("users")
-	if collection.FindOne(context.TODO(), bson.D{primitive.E{Key: "email", Value: user.Email}}).Err() != nil {
-		_, err := collection.InsertOne(context.TODO(), user)
-		if err != nil {
-			log.Println(err)
-			return 500
+func SaveUser(user models.User) models.HttpErrorStatus {
+	db := DBConn
+	if db.NewRecord(user) {
+		errors := db.Create(&user).GetErrors()
+		if len(errors) == 0 {
+			return models.HttpErrorStatus { Status: 201, Error: http.StatusText(201)}
+		} else {
+			return models.HttpErrorStatus { Status: 400, Error: errors[0].Error()}
 		}
-		return 201
+	} else {
+		return models.HttpErrorStatus { Status: 409, Error: "Primary field present in body"}
 	}
-	log.Println("Email already present")
-	return 409
 }
