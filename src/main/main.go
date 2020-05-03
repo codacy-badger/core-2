@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/pravinba9495/iborg-core/src/database"
-	"github.com/pravinba9495/iborg-core/src/router"
-	"github.com/pravinba9495/iborg-core/src/server"
+	"github.com/iborg-ai/core/src/database"
+	"github.com/iborg-ai/core/src/router"
+	"github.com/iborg-ai/core/src/server"
 )
 
 func main() {

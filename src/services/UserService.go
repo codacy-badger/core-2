@@ -3,8 +3,8 @@ package services
 import (
 	"crypto/md5"
 	"encoding/hex"
-	"github.com/pravinba9495/iborg-core/src/database"
-	"github.com/pravinba9495/iborg-core/src/models"
+	"github.com/iborg-ai/core/src/database"
+	"github.com/iborg-ai/core/src/models"
 )
 
 // SaveUser saves the user

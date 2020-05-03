@@ -5,9 +5,9 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/pravinba9495/iborg-core/src/middleware"
-	"github.com/pravinba9495/iborg-core/src/models"
-	"github.com/pravinba9495/iborg-core/src/services"
+	"github.com/iborg-ai/core/src/middleware"
+	"github.com/iborg-ai/core/src/models"
+	"github.com/iborg-ai/core/src/services"
 )
 
 // UserController represents the entry point for the User API

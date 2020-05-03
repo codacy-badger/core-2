@@ -1,7 +1,7 @@
 package database
 
 import (
-	"github.com/pravinba9495/iborg-core/src/models"
+	"github.com/iborg-ai/core/src/models"
 	"log"
 )
 

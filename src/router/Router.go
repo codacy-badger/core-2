@@ -2,7 +2,7 @@ package router
 
 import (
 	"github.com/gorilla/mux"
-	"github.com/pravinba9495/iborg-core/src/controllers"
+	"github.com/iborg-ai/core/src/controllers"
 	"net/http"
 )
 
