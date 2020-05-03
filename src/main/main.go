@@ -9,5 +9,6 @@ import (
 func main() {
 	router.RegisterRoutes()
 	database.ConnectDB()
+	database.AutoMigrate()
 	server.CreateServer()
 }
