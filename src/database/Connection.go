@@ -1,24 +1,17 @@
 package database
 
 import (
-	"context"
-	"go.mongodb.org/mongo-driver/mongo"
-	"go.mongodb.org/mongo-driver/mongo/options"
+	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"log"
-	"os"
 )
 
 // ConnectDB instantiates a mongoDB connection
 func ConnectDB() {
-	var mongoURL = os.Getenv("IBORG_MONGO_URL")
-	if mongoURL == "" {
-		mongoURL = "mongodb://localhost:27017"
-	}
-	clientOptions := options.Client().ApplyURI(mongoURL)
 	var err error
-	DBConn, err = mongo.Connect(context.TODO(), clientOptions)
+	DBConn, err = gorm.Open("mysql", "iborg:iborg@(192.168.1.116)/iborg?charset=utf8mb4")
 	if err != nil {
-		log.Println(err.Error())
+		log.Fatalln(err.Error())
 	}
-	log.Println("Connected to MongoDB")
+	log.Println("Connected to database")
 }
