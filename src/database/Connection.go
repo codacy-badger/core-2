@@ -10,7 +10,7 @@ import (
 // ConnectDB instantiates a mongoDB connection
 func ConnectDB() {
 	var err error
-	DBConn, err = gorm.Open("mysql", "iborg:iborg@(192.168.1.116)/iborg?charset=utf8mb4&parseTime=True&loc=Local")
+	DBConn, err = gorm.Open("mysql", "iborg:iborg@(192.168.1.117)/iborg?charset=utf8mb4&parseTime=True&loc=Local")
 	if err != nil {
 		log.Fatalln(err.Error())
 	}
