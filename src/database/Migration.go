@@ -1,8 +1,9 @@
 package database
 
 import (
-	"github.com/iborg-ai/core/src/models"
 	"log"
+
+	"github.com/iborg-ai/core/src/models"
 )
 
 // AutoMigrate will start mysql db migration
