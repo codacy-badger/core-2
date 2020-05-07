@@ -19,8 +19,11 @@ func LoginController(c *fiber.Ctx) {
 	case "POST":
 		doLogin(c)
 		break
+	case "OPTIONS":
+		c.SendStatus(http.StatusOK)
+		break
 	default:
-		c.SendStatus(http.StatusMethodNotAllowed)
+		c.Status(http.StatusMethodNotAllowed).JSON(&models.HTTPErrorStatus{Status: http.StatusMethodNotAllowed, Message: http.StatusText(http.StatusMethodNotAllowed)})
 		break
 	}
 }
@@ -35,5 +38,13 @@ func doLogin(c *fiber.Ctx) {
 	}
 
 	result := services.DoLogin(user.Email, user.Password)
+	if result.Status == http.StatusOK {
+		tokenString, err := middleware.CreateToken(user.Email)
+		if err != nil {
+			c.Status(http.StatusInternalServerError).Send(err)
+			return
+		}
+		c.Set("Authorization", "Bearer "+tokenString)
+	}
 	c.Status(result.Status).JSON(result)
 }
