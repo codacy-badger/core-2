@@ -1,9 +1,9 @@
 package middleware
 
 import (
-	"log"
 	"net/http"
 	"os"
+	"strconv"
 	"time"
 
 	"github.com/dgrijalva/jwt-go"
@@ -11,7 +11,7 @@ import (
 	"github.com/iborg-ai/core/src/models"
 )
 
-var key = os.Getenv("core_TOKEN_KEY")
+var key = os.Getenv("IBORG_TOKEN_KEY")
 
 // VerifyToken verifies if the token present in the authorization header is valid
 func VerifyToken(c *fiber.Ctx) {
@@ -21,17 +21,25 @@ func VerifyToken(c *fiber.Ctx) {
 		c.Status(http.StatusUnauthorized).JSON(&models.HTTPErrorStatus{Status: http.StatusUnauthorized, Message: http.StatusText(http.StatusUnauthorized)})
 		return
 	}
-	c.Next()
+
+	status := ValidateToken(c, token)
+
+	if status == http.StatusOK {
+		c.Next()
+	} else {
+		c.SendStatus(status)
+	}
 }
 
 // CreateToken returns the token and error after signing with HS256
-func CreateToken(email string) (string, error) {
+func CreateToken(id uint, email string) (string, error) {
 	if key == "" {
 		key = "core"
 	}
 	expirationTime := time.Now().Add(24 * time.Hour)
 	claims := &models.Claims{
-		Email: email,
+		UserID: strconv.FormatUint(uint64(id), 16),
+		Email:  email,
 		StandardClaims: jwt.StandardClaims{
 			ExpiresAt: expirationTime.Unix(),
 		},
@@ -41,7 +49,7 @@ func CreateToken(email string) (string, error) {
 }
 
 // ValidateToken validates a token payload
-func ValidateToken(tokenString string) int {
+func ValidateToken(c *fiber.Ctx, tokenString string) int {
 	if key == "" {
 		key = "core"
 	}
@@ -50,14 +58,14 @@ func ValidateToken(tokenString string) int {
 		return []byte(key), nil
 	})
 	if err != nil {
-		log.Println(err)
-		if err == jwt.ErrSignatureInvalid {
-			return http.StatusUnauthorized
-		}
-		return http.StatusBadRequest
+		return http.StatusUnauthorized
 	}
 	if !token.Valid {
 		return http.StatusUnauthorized
 	}
+	c.Fasthttp.Request.Header.Add("UserID", claims.UserID)
+	c.Fasthttp.Request.Header.Add("Email", claims.Email)
+	c.Set("UserID", claims.UserID)
+	c.Set("Email", claims.Email)
 	return http.StatusOK
 }
