@@ -1,7 +1,6 @@
 package controllers
 
 import (
-	"log"
 	"net/http"
 
 	"github.com/gofiber/fiber"
@@ -11,12 +10,11 @@ import (
 
 // TokenController represents the entry point for the Token API
 func TokenController(c *fiber.Ctx) {
-	log.Println("Token API")
 	middleware.AddHeaders(c)
 
 	switch c.Method() {
 	case "POST":
-		validateToken(c)
+		ValidateToken(c)
 		break
 	case "OPTIONS":
 		c.SendStatus(http.StatusOK)
@@ -27,14 +25,14 @@ func TokenController(c *fiber.Ctx) {
 	}
 }
 
-func validateToken(c *fiber.Ctx) {
-	log.Println("Do Validate Token")
+// ValidateToken validates a token
+func ValidateToken(c *fiber.Ctx) {
 
 	token := new(models.TokenPayload)
 	if err := c.BodyParser(token); err != nil {
 		c.SendStatus(http.StatusBadRequest)
 		return
 	}
-	status := middleware.ValidateToken(token.Token)
+	status := middleware.ValidateToken(c, token.Token)
 	c.Status(status).JSON(&models.HTTPErrorStatus{Status: status, Message: http.StatusText(status)})
 }
