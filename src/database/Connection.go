@@ -2,6 +2,7 @@ package database
 
 import (
 	"log"
+	"os"
 
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql" // MySQL Dialect for GORM
@@ -11,7 +12,11 @@ import (
 // ConnectDB instantiates a mongoDB connection
 func ConnectDB() {
 	var err error
-	DBConn, err = gorm.Open("mysql", "iborg:iborg@(192.168.1.117)/iborg?charset=utf8mb4&parseTime=True&loc=Local")
+	dbHost := os.Getenv("dbHost")
+	if dbHost == "" {
+		dbHost = "localhost"
+	}
+	DBConn, err = gorm.Open("mysql", "iborg:iborg@("+dbHost+")/iborg?charset=utf8mb4&parseTime=True&loc=Local")
 	if err != nil {
 		log.Fatalln(err.Error())
 	}
