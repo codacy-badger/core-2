@@ -28,11 +28,6 @@ func UserController(c *fiber.Ctx) {
 
 }
 
-func getUser(c *fiber.Ctx) {
-	middleware.VerifyToken(c)
-	c.Write([]byte("OK"))
-}
-
 func saveUser(c *fiber.Ctx) {
 
 	user := new(models.User)
@@ -43,9 +38,4 @@ func saveUser(c *fiber.Ctx) {
 
 	result := services.SaveUser(user)
 	c.Status(result.Status).JSON(result)
-}
-
-func updateUser(c *fiber.Ctx) {
-	middleware.VerifyToken(c)
-	c.Write([]byte("OK"))
 }
