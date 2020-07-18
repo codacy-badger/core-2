@@ -50,7 +50,7 @@ func doLogin(c *fiber.Ctx) {
 		}
 		c.Set("Authorization", "Bearer "+tokenString)
 		c.Status(http.StatusOK).JSON(fiber.Map{
-			"message": "LOGIN_SUCCESS",
+			"message": "Login Successful",
 		})
 	}
 }
