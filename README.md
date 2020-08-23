@@ -78,13 +78,13 @@ Generate a binary build for your operating system by typing:
 
 ```shell
 # For Windows
-env GOOS=windows GOARCH=amd64 go build -o ./bin/windows/core ./src/main
+env GOOS=windows GOARCH=amd64 go build -o ./bin/windows/core-winx64.exe ./src/main
 
 # For macOS
-env GOOS=darwin GOARCH=amd64 go build -o ./bin/darwin/core ./src/main
+env GOOS=darwin GOARCH=amd64 go build -o ./bin/darwin/core-macosx64 ./src/main
 
 # For Linux
-env GOOS=linux GOARCH=amd64 go build -o ./bin/linux/core ./src/main
+env GOOS=linux GOARCH=amd64 go build -o ./bin/linux/core-linux-x64 ./src/main
 ````
 
 ## License
