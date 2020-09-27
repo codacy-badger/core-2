@@ -1,4 +1,4 @@
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/00e659dd629c4cbaa3a2d543f6bcc27b)](https://www.codacy.com/gh/iborg-ai/core?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=iborg-ai/core&amp;utm_campaign=Badge_Grade) ![CI](https://github.com/iborg-ai/core/workflows/CI/badge.svg) [![Go Report Card](https://goreportcard.com/badge/github.com/iborg-ai/core)](https://goreportcard.com/report/github.com/iborg-ai/core) [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/00e659dd629c4cbaa3a2d543f6bcc27b)](https://www.codacy.com/gh/iborg-ai/core?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=iborg-ai/core&amp;utm_campaign=Badge_Grade) ![CI](https://github.com/iborg-ai/core/workflows/CI/badge.svg) [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 # core
 ## Download and Install Go
